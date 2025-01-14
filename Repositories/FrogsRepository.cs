@@ -1,5 +1,6 @@
 
 
+
 namespace froggy_finder_api.Repositories;
 
 public class FrogsRepository
@@ -45,5 +46,16 @@ public class FrogsRepository
 
     return frog;
 
+  }
+
+  public void DeleteFrog(int frogId)
+  {
+    string sql = "DELETE FROM frogs WHERE id = @frogId LIMIT 1;";
+
+    //                                      {frogId: 3}
+    int rowsAffected = _db.Execute(sql, new { frogId });
+
+    if (rowsAffected == 0) throw new Exception("No rows were deleted!");
+    if (rowsAffected > 1) throw new Exception("More than one row was deleted!");
   }
 }

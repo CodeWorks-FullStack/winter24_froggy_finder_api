@@ -66,5 +66,17 @@ public class FrogsController : ControllerBase // FrogsController extends BaseCon
     }
   }
 
-
+  [HttpDelete("{frogId}")]
+  public ActionResult<string> DeleteFrog(int frogId)
+  {
+    try
+    {
+      string message = _frogsService.DeleteFrog(frogId);
+      return Ok(message);
+    }
+    catch (Exception error)
+    {
+      return BadRequest(error.Message);
+    }
+  }
 }

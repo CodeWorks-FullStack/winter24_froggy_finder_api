@@ -34,4 +34,13 @@ public class FrogsService
     Frog frog = _frogsRepository.CreateFrog(frogData);
     return frog;
   }
+
+  public string DeleteFrog(int frogId)
+  {
+    Frog frog = GetFrogById(frogId);
+
+    _frogsRepository.DeleteFrog(frogId);
+
+    return $"{frog.Name} was deleted!";
+  }
 }
