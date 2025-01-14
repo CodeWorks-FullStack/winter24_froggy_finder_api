@@ -37,4 +37,34 @@ public class FrogsController : ControllerBase // FrogsController extends BaseCon
       return BadRequest(error.Message); // next(error)
     }
   }
+
+  [HttpGet("{frogId}")] // .get('/:frogId', this.getFrogById)
+  public ActionResult<Frog> GetFrogById(int frogId) // request.params.frogId
+  {
+    try
+    {
+      Frog frog = _frogsService.GetFrogById(frogId);
+      return Ok(frog);
+    }
+    catch (Exception error)
+    {
+      return BadRequest(error.Message);
+    }
+  }
+
+  [HttpPost]
+  public ActionResult<Frog> CreateFrog([FromBody] Frog frogData) // request.body
+  {
+    try
+    {
+      Frog frog = _frogsService.CreateFrog(frogData);
+      return Ok(frog);
+    }
+    catch (Exception error)
+    {
+      return BadRequest(error.Message);
+    }
+  }
+
+
 }

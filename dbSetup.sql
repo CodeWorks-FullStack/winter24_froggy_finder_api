@@ -18,10 +18,10 @@ DROP TABLE frogs;
 INSERT INTO 
 frogs(species, name, size, is_poisonous, bio)
 VALUES
-('desert', 'stinky', 10, false, "I eat garbage"),
-('tree', 'marble', 4,true, "I eat flies and poison hikers"),
-('tree', 'terry', 3,false, "I eat chili dogs"),
-('regular', 'mick', 120,false, "I like long hops on the beach");
+('desert', 'stinky brother', 10, false, "I eat garbage");
+-- ('tree', 'marble', 4,true, "I eat flies and poison hikers"),
+-- ('tree', 'terry', 3,false, "I eat chili dogs"),
+-- ('regular', 'mick', 120,false, "I like long hops on the beach");
 
 -- removes all rows from table 
 DELETE FROM frogs;
